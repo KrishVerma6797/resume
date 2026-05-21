@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Krish Verma — AI/ML Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0b0c0e;
+    --surface: #111317;
+    --border: #1e2128;
+    --accent: #7effa0;
+    --accent2: #4af0d0;
+    --muted: #555b69;
+    --text: #d8dde8;
+    --heading: #f0f3fa;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    line-height: 1.7;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Grid noise background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(126,255,160,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(126,255,160,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Glow blob */
+  body::after {
+    content: '';
+    position: fixed;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(74,240,208,0.07) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 0 60px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 70px;
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--heading);
+    letter-spacing: -0.5px;
+  }
+
+  .nav-logo span { color: var(--accent); }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+  }
+
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  nav a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    margin-bottom: 90px;
+  }
+
+  .hero-tag {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(42px, 8vw, 76px);
+    color: var(--heading);
+    line-height: 1.0;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+  }
+
+  h1 .dim { color: var(--muted); }
+
+  .hero-desc {
+    max-width: 520px;
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 36px;
+    line-height: 1.8;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: 4px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #0b0c0e;
+    font-weight: 500;
+  }
+
+  .btn-primary:hover {
+    background: #a4ffc0;
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--accent2);
+    color: var(--accent2);
+    transform: translateY(-1px);
+  }
+
+  /* STATS */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 90px;
+  }
+
+  .stat {
+    background: var(--surface);
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+  .stat-val {
+    font-family: 'Syne', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--heading);
+    display: block;
+  }
+
+  .stat-val span { color: var(--accent); }
+
+  .stat-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  /* SECTIONS */
+  section { margin-bottom: 80px; }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--heading);
+    letter-spacing: -0.5px;
+  }
+
+  /* EXPERIENCE */
+  .exp-list { display: flex; flex-direction: column; gap: 2px; }
+
+  .exp-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px 28px;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: default;
+  }
+
+  .exp-item:hover {
+    border-color: rgba(126,255,160,0.3);
+    transform: translateX(4px);
+  }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .exp-role {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    color: var(--heading);
+    font-size: 15px;
+  }
+
+  .exp-company { color: var(--accent); font-size: 13px; }
+
+  .exp-meta {
+    font-size: 11px;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  .exp-bullets {
+    margin-top: 12px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .exp-bullets li {
+    color: var(--muted);
+    font-size: 13px;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .exp-bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 11px;
+  }
+
+  /* PROJECTS */
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+    text-decoration: none;
+    display: block;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .project-card:hover {
+    border-color: rgba(126,255,160,0.25);
+    transform: translateY(-3px);
+  }
+
+  .project-card:hover::before { transform: scaleX(1); }
+
+  .project-num {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+
+  .project-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 12px;
+  }
+
+  .project-desc {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .tag {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: rgba(126,255,160,0.08);
+    color: var(--accent);
+    border: 1px solid rgba(126,255,160,0.15);
+  }
+
+  .tag.teal {
+    background: rgba(74,240,208,0.08);
+    color: var(--accent2);
+    border-color: rgba(74,240,208,0.15);
+  }
+
+  /* SKILLS */
+  .skill-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .skill-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 22px 24px;
+  }
+
+  .skill-category {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 14px;
+  }
+
+  .skill-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  .pill {
+    font-size: 11.5px;
+    padding: 5px 13px;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.04);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  /* ACHIEVEMENTS */
+  .ach-list { display: flex; flex-direction: column; gap: 12px; }
+
+  .ach-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 18px 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+  }
+
+  .ach-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .ach-text { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .ach-text strong { color: var(--heading); display: block; margin-bottom: 2px; font-family: 'Syne', sans-serif; font-size: 14px; }
+
+  /* CONTACT */
+  .contact-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 12px;
+    transition: all 0.2s;
+  }
+
+  .contact-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding-top: 28px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero { animation: fadeUp 0.7s ease both; }
+  .stats { animation: fadeUp 0.7s ease 0.15s both; }
+  section { animation: fadeUp 0.7s ease 0.25s both; }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    nav ul { gap: 16px; }
+    .project-grid, .skill-grid { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: 1fr; }
+    .exp-header { flex-direction: column; }
+    .exp-meta { text-align: left; }
+    h1 { letter-spacing: -1px; }
+  }
+</style>
+</head>
+<body>
+
+<main>
+
+  <nav>
+    <div class="nav-logo">KV<span>.</span></div>
+    <ul>
+      <li><a href="#experience">Work</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">AI/ML Engineer · Open Source Contributor</div>
+    <h1>Krish<br/><span class="dim">Verma</span></h1>
+    <p class="hero-desc">
+      B.Tech CSE (AI-ML) student at GBPIET, Uttarakhand — building intelligent systems with Python, ML, and NLP.
+      GSSoC '25 Contributor · Google Cloud Arcade Participant · AI/ML Intern at ElevateLabs.
+    </p>
+    <div class="hero-links">
+      <a href="https://github.com/KrishVerma6797" target="_blank" class="btn btn-primary">↗ GitHub</a>
+      <a href="https://linkedin.com/in/krish-verma-87ab9b324" target="_blank" class="btn btn-outline">LinkedIn</a>
+      <a href="mailto:krishverma6797@gmail.com" class="btn btn-outline">Email Me</a>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-val">8<span>.</span>9</span>
+      <div class="stat-label">CGPA</div>
+    </div>
+    <div class="stat">
+      <span class="stat-val"><span>~</span>84<span>%</span></span>
+      <div class="stat-label">ROC-AUC (Fraud Detection)</div>
+    </div>
+    <div class="stat">
+      <span class="stat-val">3<span>+</span></span>
+      <div class="stat-label">Programs & Internships</div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label">Experience</div>
+    <div class="exp-list">
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">AI/ML Intern</div>
+            <div class="exp-company">ElevateLabs</div>
+          </div>
+          <div class="exp-meta">Jan 2026 – Apr 2026<br/>Remote</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Developed ML workflows: preprocessing, EDA, feature engineering & model evaluation using Python + Scikit-learn</li>
+          <li>Implemented hyperparameter optimization with Optuna to improve model performance</li>
+          <li>Built classification models evaluated with Accuracy, Precision, Recall, F1-Score, and ROC-AUC</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Open Source Contributor</div>
+            <div class="exp-company">GSSoC '25 — GirlScript Summer of Code</div>
+          </div>
+          <div class="exp-meta">Jul 2025 – Oct 2025<br/>Remote</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Contributed to open-source projects in one of India's largest open-source programs</li>
+          <li>Enhanced code quality through reviews, testing, and documentation</li>
+          <li>Gained hands-on experience in Git workflows and collaborative software development</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Google Cloud Arcade Participant</div>
+            <div class="exp-company">Google Developers Group</div>
+          </div>
+          <div class="exp-meta">Apr 2025 – Oct 2025<br/>Remote</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Completed hands-on labs and skill badges in cloud computing on GCP</li>
+          <li>Worked with compute, storage, and machine learning services on Google Cloud Platform</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label">Projects</div>
+    <div class="project-grid">
+
+      <a class="project-card" href="https://github.com/KrishVerma6797/Fraud-Detection-Engine" target="_blank">
+        <div class="project-num">01 / PROJECT</div>
+        <div class="project-name">Fraud Detection Engine</div>
+        <p class="project-desc">End-to-end fraud detection using XGBoost for imbalanced classification. Includes preprocessing, stratified train-test split, cost-sensitive threshold tuning, and Streamlit deployment.</p>
+        <div class="tag-row">
+          <span class="tag">XGBoost</span>
+          <span class="tag">Scikit-learn</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">ROC-AUC 83.86%</span>
+        </div>
+      </a>
+
+      <div class="project-card">
+        <div class="project-num">02 / PROJECT</div>
+        <div class="project-name">Next Word Predictor</div>
+        <p class="project-desc">NLP language modeling system using LSTM architecture for next-word prediction — includes text preprocessing, tokenization, embedding layers, and sequence learning.</p>
+        <div class="tag-row">
+          <span class="tag teal">LSTM</span>
+          <span class="tag teal">NLP</span>
+          <span class="tag teal">Deep Learning</span>
+          <span class="tag teal">Python</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">Technical Skills</div>
+    <div class="skill-grid">
+
+      <div class="skill-block">
+        <div class="skill-category">Languages</div>
+        <div class="skill-pills">
+          <span class="pill">Python</span>
+          <span class="pill">Java</span>
+          <span class="pill">C</span>
+          <span class="pill">C++</span>
+        </div>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-category">ML / AI</div>
+        <div class="skill-pills">
+          <span class="pill">Machine Learning</span>
+          <span class="pill">NLP</span>
+          <span class="pill">Deep Learning</span>
+          <span class="pill">Optuna</span>
+        </div>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-category">Tools & Platforms</div>
+        <div class="skill-pills">
+          <span class="pill">Git</span>
+          <span class="pill">GitHub</span>
+          <span class="pill">Jupyter</span>
+          <span class="pill">VS Code</span>
+          <span class="pill">Google Cloud</span>
+        </div>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-category">Libraries</div>
+        <div class="skill-pills">
+          <span class="pill">NumPy</span>
+          <span class="pill">Pandas</span>
+          <span class="pill">Matplotlib</span>
+          <span class="pill">Scikit-learn</span>
+        </div>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-category">CS Fundamentals</div>
+        <div class="skill-pills">
+          <span class="pill">DSA</span>
+          <span class="pill">OOP</span>
+          <span class="pill">Problem Solving</span>
+        </div>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-category">Soft Skills</div>
+        <div class="skill-pills">
+          <span class="pill">Analytical Thinking</span>
+          <span class="pill">Collaboration</span>
+          <span class="pill">Communication</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section>
+    <div class="section-label">Achievements</div>
+    <div class="ach-list">
+
+      <div class="ach-item">
+        <div class="ach-icon">🏅</div>
+        <div class="ach-text">
+          <strong>CBSE Certificate of Merit — Top 0.1%</strong>
+          Awarded in both Class X and Class XII for outstanding academic performance under the Central Board of Secondary Education.
+        </div>
+      </div>
+
+      <div class="ach-item">
+        <div class="ach-icon">💻</div>
+        <div class="ach-text">
+          <strong>Active LeetCode Practitioner</strong>
+          Consistently solving DSA problems to sharpen problem-solving skills and coding efficiency.
+        </div>
+      </div>
+
+      <div class="ach-item">
+        <div class="ach-icon">🌍</div>
+        <div class="ach-text">
+          <strong>Open Source Contributor — GSSoC '25</strong>
+          Actively contributed to real-world open-source projects, improving code quality and implementing new features.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label">Contact</div>
+    <div class="contact-row">
+      <a href="mailto:krishverma6797@gmail.com" class="contact-link">
+        ✉ krishverma6797@gmail.com
+      </a>
+      <a href="tel:+919259240621" class="contact-link">
+        📞 +91 92592 40621
+      </a>
+      <a href="https://github.com/KrishVerma6797" target="_blank" class="contact-link">
+        ⌥ GitHub
+      </a>
+      <a href="https://linkedin.com/in/krish-verma-87ab9b324" target="_blank" class="contact-link">
+        ↗ LinkedIn
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>Krish Verma · B.Tech CSE (AI-ML) '28 · GBPIET, Uttarakhand</p>
+    <p style="margin-top:6px">Built with HTML &amp; CSS · No frameworks</p>
+  </footer>
+
+</main>
+
+</body>
+</html>
