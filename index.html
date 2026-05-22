@@ -448,23 +448,82 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:1.8rem 4
 
 /* ─── MISC ─── */
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:768px){
+
+  nav{
+    padding:0 1rem;
+  }
+
+  .nlinks{
+    display:none;
+  }
+
+  #home,
+  #about,
+  #education,
+  #experience,
+  #skills,
+  #projects,
+  #services,
+  #contact{
+    padding:5rem 1rem;
+  }
+
+  .hero-wrap,
+  .about-grid,
+  .skills-grid,
+  .con-grid,
+  .exp-grid,
+  .svc-grid,
+  .ach-grid,
+  .infocards{
+    grid-template-columns:1fr;
+  }
+
+  .htitle{
+    font-size:2rem;
+  }
+
+  .pframe{
+    width:240px;
+    height:300px;
+  }
+
+  .projects-scroll .proj-card{
+    min-width:90%;
+  }
+
+  .stats-g{
+    grid-template-columns:1fr;
+  }
+
+}
+
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 </head>
 <body>
 
 <canvas id="cvs"></canvas>
 <div id="curglow"></div>
 <div class="toast" id="toast">✉ Opening your email client…</div>
-
-
-
-
-
-
-
-
-
-
   
 <!-- ═══════════════ NAV ═══════════════ -->
 <nav id="navbar">
