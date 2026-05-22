@@ -501,7 +501,29 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:1.8rem 4
   }
 
 }
+.scroll-note{
+    color:var(--muted);
+    font-size:.8rem;
+    margin-top:1rem;
+    text-align:center;
+    width:100%;
 
+    animation:fadeMove 2s infinite;
+}
+
+@keyframes fadeMove{
+
+    0%,100%{
+        opacity:.5;
+        transform:translateX(0);
+    }
+
+    50%{
+        opacity:1;
+        transform:translateX(6px);
+    }
+
+}
 </style>
 
 
@@ -741,6 +763,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:1.8rem 4
       A showcase of my hands-on work in machine learning,
       AI systems, and intelligent applications
     </p>
+    
   </div>
 
   <!-- FRAUD DETECTION -->
@@ -1188,6 +1211,9 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:1.8rem 4
 
 
   </div>
+  <p class="scroll-note">
+   ← Scroll horizontally to explore more projects →
+</p>
 </section>
 
   <!-- ACHIEVEMENTS -->
