@@ -270,6 +270,60 @@ section{position:relative;z-index:1;}
 .pill{background:var(--bg);border:1px solid var(--border);border-radius:6px;
   padding:.2rem .52rem;font-size:.68rem;color:var(--muted2);transition:all .2s;}
 .pill:hover{border-color:var(--cyan);color:var(--cyan);}
+/* EXPERIENCE */
+.exp-scroll{
+    width:100%;
+    overflow-x:auto;
+    overflow-y:hidden;
+    padding-bottom:12px;
+}
+
+.exp-grid{
+    display:flex;
+    gap:24px;
+    width:max-content;
+}
+.exp-card{
+    width:360px;
+    min-width:360px;
+    height:430px;
+
+    display:flex;
+    flex-direction:column;
+}
+.epoints2{
+    flex:1;
+}
+.pills{
+    margin-top:auto;
+}
+.exp-card{
+    min-width:360px;
+    flex-shrink:0;
+}
+.exp-scroll{
+    overflow-x:auto;
+    overflow-y:hidden;
+
+    padding-top:12px;
+    padding-bottom:12px;
+}
+.exp-scroll{
+    width:100%;
+    overflow-x:auto;
+    overflow-y:hidden;
+
+    scroll-behavior:smooth;
+    -webkit-overflow-scrolling:touch;
+
+    /* Hide scrollbar */
+    scrollbar-width:none;      /* Firefox */
+    -ms-overflow-style:none;   /* IE/Edge */
+}
+
+.exp-scroll::-webkit-scrollbar{
+    display:none;              /* Chrome, Safari, Opera */
+}
 
 /* ─── SKILLS ─── */
 #skills{padding:6rem 4rem;background:linear-gradient(180deg,transparent,rgba(15,20,33,.55),transparent);}
@@ -548,6 +602,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:1.8rem 4
 
 
 
+
   
 </head>
 <body>
@@ -648,11 +703,14 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:1.8rem 4
     <p class="sdesc">Passionate AI/ML enthusiast dedicated to building intelligent solutions and contributing to the open-source community</p></div>
   <div class="about-grid">
     <div class="al sl">
-      <h2>Building the Future with <span class="cy">AI &amp; Machine Learning.</span></h2>
-      <p>I am a <strong>BTech CSE (AI-ML) student</strong> at <strong>Govind Ballabh Pant Institute of Engineering &amp; Technology</strong> (GBPIET), Pauri, Uttarakhand. Currently in my 2nd year with a CGPA of 8.9.</p>
-      <p>My journey as a <strong>GSSoC '25 Contributor</strong> has strengthened my open-source collaboration skills.</p>
-      <p>Completed an <strong>AI/ML Internship at ElevateLabs</strong> (Jan–Apr 2026), working on data preprocessing, EDA, feature engineering, and ML model development using Python, Scikit-learn, and Optuna.</p>
-      <div class="stags">
+      <h2>Building Intelligent Solutions with <span class="cy">AI &amp; Machine Learning.</span></h2>
+
+<p>I am a <strong>BTech CSE (AI-ML) student</strong> at <strong>GBPIET, Uttarakhand</strong>, passionate about Machine Learning, Artificial Intelligence, NLP, and Data Science.</p>
+
+<p>My journey includes a <strong>Internship at ARIES</strong>, where I built an AI-powered astronomical image archival and retrieval system, and an <strong>AI/ML Internship at ElevateLabs</strong>, where I worked on data preprocessing, feature engineering, and machine learning model development.</p>
+
+<p>As a <strong>GSSoC '25 Contributor</strong>, I strengthened my open-source collaboration skills while continuously building intelligent solutions and exploring emerging technologies.</p>
+<div class="stags">
         <span class="stag">&lt;/&gt; Python <span class="lv"></span></span>
         <span class="stag" style="border-color:rgba(168,85,247,.3);">⚡ ML/AI <span class="lv" style="color:var(--purple);"></span></span>
         <span class="stag" style="border-color:rgba(236,72,153,.3);">⊕ Git &amp; GitHub <span class="lv" style="color:var(--pink);"></span></span>
@@ -660,7 +718,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:1.8rem 4
     </div>
     <div class="srr" style="display:flex;flex-direction:column;gap:1rem;">
       <div class="stats-g">
-        <div class="stat-c ss d1"><div class="stat-ic">⊙</div><div class="stat-n" data-target="25">0</div><div style="color:var(--muted2);font-weight:700;">+</div><div class="stat-l">GitHub Repos</div></div>
+        <div class="stat-c ss d1"><div class="stat-ic">⊙</div><div class="stat-n" data-target="45">0</div><div style="color:var(--muted2);font-weight:700;">+</div><div class="stat-l">GitHub Repos</div></div>
         <div class="stat-c ss d2"><div class="stat-ic">&lt;&gt;</div><div class="stat-n" data-target="250">0</div><div style="color:var(--muted2);font-weight:700;">+</div><div class="stat-l">LeetCode Solved</div></div>
         <div class="stat-c ss d3"><div class="stat-ic">☆</div><div class="stat-n" data-target="300">0</div><div style="color:var(--muted2);font-weight:700;">+</div><div class="stat-l">DSA Problems</div></div>
       </div>
@@ -704,7 +762,42 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:1.8rem 4
 <section id="experience">
   <div class="sh sr"><div class="slbl">EXPERIENCE</div>
     <p class="sdesc">My professional journey through internships, programs, and open-source contributions</p></div>
-  <div class="exp-grid">
+    <div class="exp-scroll">
+    <div class="exp-grid">
+
+     <div class="exp-card sr d0">
+  <div class="exp-head">
+    <div class="exp-ic ei-a">🔭</div>
+    <div class="exp-tg">
+      <h3>Intern</h3>
+      <h4>ARIES (Aryabhatta Research Institute of Observational Sciences)</h4>
+    </div>
+  </div>
+
+
+  <div class="emeta">
+    <span class="etag">July 2026 – Aug 2026</span>
+    <span class="etag">📍 Nainital, India</span>
+    <span class="etag a">Internship</span>
+  </div>
+
+  <ul class="epoints2">
+    <li>Developed an AI-powered astronomical image archival &amp; retrieval system.</li>
+    <li>Built a full-stack platform using React, FastAPI, and MySQL.</li>
+    <li>Implemented FITS metadata extraction, semantic search, and REST APIs.</li>
+  </ul>
+
+  <div class="pills">
+    <span class="pill">React</span>
+    <span class="pill">FastAPI</span>
+    <span class="pill">MySQL</span>
+    <span class="pill">FITS</span>
+    <span class="pill">AI Search</span>
+  </div>
+
+    
+</div>
+
     <div class="exp-card sr d1">
       <div class="exp-head"><div class="exp-ic ei-b">🤖</div><div class="exp-tg"><h3>AI/ML Intern</h3><h4>ElevateLabs</h4></div></div>
       <div class="emeta"><span class="etag">Jan 2026 – Apr 2026</span><span class="etag">📍 Remote</span><span class="etag c">Internship</span></div>
@@ -775,8 +868,55 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:1.8rem 4
     
   </div>
 
+  
   <!-- FRAUD DETECTION -->
+   
 <div class="projects-scroll">
+<div class="proj-card sr">
+     <div class="ph">
+
+  <div class="picon"
+  style="background:linear-gradient(135deg,rgba(168,85,247,.2),rgba(37,99,235,.2));">
+    🔭
+  </div>
+
+  <span class="pstatus">
+    Completed
+  </span>
+
+</div>
+
+<h3>AI-Powered Astronomical Image Archive</h3>
+
+<p>
+  Developed a full-stack astronomical image archival and retrieval platform
+  during my <strong style="color:var(--cyan);">ARIES Internship</strong>,
+  enabling metadata-based search and AI-powered retrieval of FITS images using
+  FastAPI, React, and MySQL.
+</p>
+
+<ul class="ppoints">
+  <li>AI-powered metadata &amp; semantic image search</li>
+  <li>FITS image ingestion and metadata extraction</li>
+  <li>FastAPI backend with React frontend</li>
+  <li>MySQL database for astronomical image management</li>
+</ul>
+
+<div class="ptags">
+  <span class="pill">React</span>
+  <span class="pill">FastAPI</span>
+  <span class="pill">MySQL</span>
+  <span class="pill">FITS</span>
+  <span class="pill">AI Search</span>
+</div>
+
+<a class="vcode"
+   href="https://github.com/KrishVerma6797/Astronomical-Image-Archive"
+   target="_blank"
+   rel="noopener">
+    ⊙ View Astronomical Archive Project
+</a>
+</div>
   <div class="proj-card sr">
 
     <div class="ph">
@@ -876,7 +1016,51 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:1.8rem 4
     </a>
 
   </div>
+  <div class="proj-card sr d2">
+   <div class="ph">
 
+  <div class="picon"
+  style="background:linear-gradient(135deg,rgba(34,197,94,.2),rgba(0,212,255,.2));">
+    📄
+  </div>
+
+  <span class="pstatus">
+    Completed
+  </span>
+
+</div>
+
+<h3>AI Resume Analyzer & Interview Coach</h3>
+
+<p>
+  Built an <strong style="color:var(--cyan);">AI-powered career assistant</strong>
+  that analyzes resumes, provides ATS-friendly feedback, evaluates skills,
+  and generates personalized interview questions with actionable improvement
+  suggestions.
+</p>
+
+<ul class="ppoints">
+  <li>AI-powered resume analysis & ATS evaluation</li>
+  <li>Personalized interview question generation</li>
+  <li>Resume scoring with improvement suggestions</li>
+  <li>Interactive and user-friendly web interface</li>
+</ul>
+
+<div class="ptags">
+  <span class="pill">Python</span>
+  <span class="pill">Streamlit</span>
+  <span class="pill">NLP</span>
+  <span class="pill">LLM</span>
+  <span class="pill">AI</span>
+</div>
+
+<a class="vcode"
+   href="https://github.com/KrishVerma6797/AI_Resume_Analyzer_and_Interview_Coach"
+   target="_blank"
+   rel="noopener">
+   ⊙  View AI Resume Analyzer Project
+</a>
+</div>
   <!-- SEMANTIC NLP -->
 
   <div class="proj-card sr d2">
